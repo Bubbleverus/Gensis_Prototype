@@ -1,7 +1,6 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
 #include "Gensis_UE4.h"
-#include "Kismet/HeadMountedDisplayFunctionLibrary.h"
 #include "Gensis_UE4Character.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -9,6 +8,17 @@
 
 AGensis_UE4Character::AGensis_UE4Character()
 {
+  // Setup the basic camera stats
+  aim_boom_length = 100.0f;
+  aim_camera_offset = FVector(0, 50, 70);
+
+  normal_boom_length = 300.0f;
+  normal_camera_offset = FVector(0, 0, 0);
+
+  walk_speed = 600.0f;
+  sprint_speed = 10000.0f;
+
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -55,6 +65,12 @@ void AGensis_UE4Character::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAxis("MoveForward", this, &AGensis_UE4Character::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AGensis_UE4Character::MoveRight);
 
+//  PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &AGensis_UE4Character::StartSprint);
+//  PlayerInputComponent->BindAction("Sprint", IE_Released, this, &AGensis_UE4Character::EndSprint);
+
+  PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &AGensis_UE4Character::StartAim);
+  PlayerInputComponent->BindAction("Aim", IE_Released, this, &AGensis_UE4Character::EndAim);
+
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
@@ -62,29 +78,6 @@ void AGensis_UE4Character::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindAxis("TurnRate", this, &AGensis_UE4Character::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AGensis_UE4Character::LookUpAtRate);
-
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &AGensis_UE4Character::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &AGensis_UE4Character::TouchStopped);
-
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AGensis_UE4Character::OnResetVR);
-}
-
-
-void AGensis_UE4Character::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void AGensis_UE4Character::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void AGensis_UE4Character::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
 }
 
 void AGensis_UE4Character::TurnAtRate(float Rate)
@@ -103,6 +96,8 @@ void AGensis_UE4Character::MoveForward(float Value)
 {
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
+
+
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
@@ -126,4 +121,30 @@ void AGensis_UE4Character::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void AGensis_UE4Character::StartSprint()
+{
+  //GetCharacterMovement()->MaxWalkSpeed = sprint_speed; 
+  //CameraBoom->TargetArmLength = 300.0f;
+  //CameraBoom->SocketOffset = FVector(0.0f, 50.0f, 0.0f);
+}
+
+void AGensis_UE4Character::EndSprint()
+{
+  //GetCharacterMovement()->MaxWalkSpeed = walk_speed;
+  //CameraBoom->TargetArmLength = 200.0f;
+  //CameraBoom->SocketOffset = FVector(0.0f, 50.0f, 50.0f);
+}
+
+void AGensis_UE4Character::StartAim()
+{
+  CameraBoom->TargetArmLength = aim_boom_length;
+  CameraBoom->SocketOffset = aim_camera_offset;
+}
+
+void AGensis_UE4Character::EndAim()
+{
+  CameraBoom->TargetArmLength = normal_boom_length;
+  CameraBoom->SocketOffset = normal_camera_offset;
 }

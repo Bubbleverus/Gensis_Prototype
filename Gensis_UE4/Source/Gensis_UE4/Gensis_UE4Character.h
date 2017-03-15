@@ -7,6 +7,40 @@ UCLASS(config=Game)
 class AGensis_UE4Character : public ACharacter
 {
 	GENERATED_BODY()
+public:
+  AGensis_UE4Character();
+
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    float health;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    float walk_speed;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    float sprint_speed;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    float max_stamina;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    float stamina;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    bool is_sprint;
+  
+  /** Camera Stats */
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = CameraStats)
+    float aim_boom_length; 
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = CameraStats)
+    FVector aim_camera_offset; 
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = CameraStats)
+    float normal_boom_length;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = CameraStats)
+    FVector normal_camera_offset;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -15,8 +49,7 @@ class AGensis_UE4Character : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
-public:
-	AGensis_UE4Character();
+
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -26,16 +59,24 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
-protected:
 
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
+
+
+protected:
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
 	/** Called for side to side input */
 	void MoveRight(float Value);
+
+  void StartSprint();
+
+  void EndSprint();
+
+  void StartAim();
+
+  void EndAim();
 
 	/** 
 	 * Called via input to turn at a given rate. 
@@ -48,12 +89,6 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
-
-	/** Handler for when a touch input begins. */
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-
-	/** Handler for when a touch input stops. */
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 protected:
 	// APawn interface
