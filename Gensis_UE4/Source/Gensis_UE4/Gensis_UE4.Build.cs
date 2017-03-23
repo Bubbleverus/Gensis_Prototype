@@ -7,5 +7,8 @@ public class Gensis_UE4 : ModuleRules
 	public Gensis_UE4(TargetInfo Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay" });
-	}
+
+        DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
+
+    }
 }
