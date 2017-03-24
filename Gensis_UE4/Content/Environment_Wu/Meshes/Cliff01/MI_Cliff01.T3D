@@ -1,0 +1,19 @@
+Begin Object Class=MaterialInstanceConstant Name="MI_Cliff01"
+   Begin Object Class=SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Parent=Material'/Game/KiteDemo/Material/M_Photoscan_Master.M_Photoscan_Master'
+   bHasStaticPermutationResource=True
+   ScalarParameterValues(0)=(ParameterName="Detail Normal Strength",ParameterValue=1.000000,ExpressionGUID=6EB9C16D4785AA016E5AFE975D89FBD2)
+   ScalarParameterValues(1)=(ParameterName="MaxSpec",ParameterValue=6.000000,ExpressionGUID=242D292A4D533EF6BD7B778DAC5A4832)
+   ScalarParameterValues(2)=(ParameterName="SpecSubtractAmt",ParameterValue=1.000000,ExpressionGUID=7765993D407BCE18AC040AB4704895F4)
+   ScalarParameterValues(3)=(ParameterName="RefractionDepthBias")
+   TextureParameterValues(0)=(ParameterName="Diffuse",ParameterValue=Texture2D'/Game/KiteDemo/Environments/Cliffs/Cliff01/T_Cliff01_D_CC_R.T_Cliff01_D_CC_R',ExpressionGUID=9345D1B946657E091C581190D7E64356)
+   TextureParameterValues(1)=(ParameterName="Normal",ParameterValue=Texture2D'/Game/KiteDemo/Environments/Cliffs/Cliff01/T_Cliff01_N.T_Cliff01_N',ExpressionGUID=2E44E82745D12C608CA070B3EEDFBB40)
+   ReferencedTextureGuids(0)=9B3696274BF370E9E55D548FFA675DBF
+   ReferencedTextureGuids(1)=65A6CC19462FA7C2413155BB2A26C33D
+   ReferencedTextureGuids(2)=EC19A48B47C4BEE7345E328EF00F2420
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'SceneThumbnailInfoWithPrimitive_0'
+   LightingGuid=FCFF953C4A2342ABF7F318A5F401CA82
+End Object
