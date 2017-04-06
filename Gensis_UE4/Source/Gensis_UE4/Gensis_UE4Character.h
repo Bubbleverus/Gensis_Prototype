@@ -28,6 +28,9 @@ public:
 
   UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
     bool is_sprint;
+
+  UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = PlayerStats)
+    bool is_aim;
   
   /** Camera Stats */
   UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = CameraStats)
@@ -77,6 +80,7 @@ protected:
   void StartAim();
 
   void EndAim();
+
 
 	/** 
 	 * Called via input to turn at a given rate. 

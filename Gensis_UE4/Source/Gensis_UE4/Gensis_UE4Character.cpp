@@ -10,10 +10,10 @@ AGensis_UE4Character::AGensis_UE4Character()
 {
   // Setup the basic camera stats
   aim_boom_length = 100.0f;
-  aim_camera_offset = FVector(0, 50, 70);
+  aim_camera_offset = FVector(0, 50, 50);
 
   normal_boom_length = 300.0f;
-  normal_camera_offset = FVector(0, 0, 0);
+  normal_camera_offset = FVector(0, 0, 50);
 
   walk_speed = 600.0f;
   sprint_speed = 10000.0f;
@@ -141,10 +141,12 @@ void AGensis_UE4Character::StartAim()
 {
   CameraBoom->TargetArmLength = aim_boom_length;
   CameraBoom->SocketOffset = aim_camera_offset;
+  is_aim = true;
 }
 
 void AGensis_UE4Character::EndAim()
 {
+  is_aim = false;
   CameraBoom->TargetArmLength = normal_boom_length;
   CameraBoom->SocketOffset = normal_camera_offset;
 }
