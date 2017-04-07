@@ -12,6 +12,8 @@ AGensis_UE4Character::AGensis_UE4Character()
   aim_boom_length = 100.0f;
   aim_camera_offset = FVector(0, 50, 50);
 
+  is_aim = false;
+
   normal_boom_length = 300.0f;
   normal_camera_offset = FVector(0, 0, 50);
 
