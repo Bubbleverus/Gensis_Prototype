@@ -141,14 +141,10 @@ void AGensis_UE4Character::EndSprint()
 
 void AGensis_UE4Character::StartAim()
 {
-  CameraBoom->TargetArmLength = aim_boom_length;
-  CameraBoom->SocketOffset = aim_camera_offset;
-  is_aim = true;
+
 }
 
 void AGensis_UE4Character::EndAim()
 {
-  is_aim = false;
-  CameraBoom->TargetArmLength = normal_boom_length;
-  CameraBoom->SocketOffset = normal_camera_offset;
+
 }
