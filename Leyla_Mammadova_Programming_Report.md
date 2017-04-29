@@ -1,4 +1,4 @@
-# Abstact 
+# Abstract
 In this project my role was to create and work with:
 #### Trading system;
 #### Lootbox system;
