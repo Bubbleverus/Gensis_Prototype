@@ -7,9 +7,9 @@ Here a closer look how it works:
 ![itemenumseparationcloser](https://github.com/Bubbleverus/Gensis_Prototype/blob/master/Leyla_Screenshots/itemsenumseparationcloser.png)
 The button widget created in grid scroll box.The weapon stats box holds information taken from weapon class:
 ![weaponstats](https://github.com/Bubbleverus/Gensis_Prototype/blob/master/Leyla_Screenshots/weapon%20stats.png)
-Because of enumeration structure I added to hold types, when our player pickup items they go to inventory array linked to him, also we have USE button that depending on which type of item you want to use it calls different events. For weapon you equip them, for potions they heal, buff our player and then disappear when used, if its regular supplies we have in our game you can only sell these items. Drop buttom drops selected items in front of the player.
+We have USE button that depending on which type of item you want to use it calls different events. For weapon you equip them, for potions they heal, buff our player and then disappear when used, if its regular supplies we have in our game you can only sell these items. Drop buttom drops selected items in front of the player.
 ![itemdrop](https://github.com/Bubbleverus/Gensis_Prototype/blob/master/Leyla_Screenshots/itemdrop.png)
-To update information in widget I used to functions list items and list weapon.
+To update information in widget I used two functions list items and list weapon.
 List weapon displays weapon information.
 List items created a button with image of items in dofferent windows depending on type, also it’s a scroll box so If number of items is big we can scroll with our mouse down and up.
 #### Trading system;
@@ -57,3 +57,6 @@ As I mentioned before I used structures for my items to hold all information, li
 ![struct](https://github.com/Bubbleverus/Gensis_Prototype/blob/master/Leyla_Screenshots/struct.png)
 #### Animation blueprints and blends for Boss and Enemy AI;
 I setuped all animations blueprints and blends for enemy characters, and some blends for characters if needed.
+#### Credits
+Big thanks to my team members! Special thanks to Rob and awesome WU! Rob thanks for doing all the animation blueprints :P and having daily conversations with me when i was unsure in the result we needed to achive! And for support when my mental health was giving up! :D 
+
