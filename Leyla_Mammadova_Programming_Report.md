@@ -22,7 +22,7 @@ After that three functions List Player Items, List Seller Items, List Ammo Shell
 #### Lootbox system;
 Loot box has the same principle as trading system except it doesn’t linked to the currency. Player can place as many items as he desires. 
 ![lootbox](https://github.com/Bubbleverus/Gensis_Prototype/blob/master/Leyla_Screenshots/lootbox.png)
-####Link to inventory, trading system and lootbox in action: 
+#### Link to inventory, trading system and lootbox in action: 
 https://youtu.be/e1Ii3_MKWrw
 #### Use items from inventory;
 Use button allows us to use selected item. On clicked use it checks if selected item exists then checks enum type, if its potion it goes through another enumeration structure I added it specially for potions and in order to make artists life easier. They don’t need to program, just select type of item and which type of potion is that.
