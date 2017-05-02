@@ -1,6 +1,3 @@
-![Snap Shot of Trello Task Board](blueprint_screenshots/trello_task_board.JPG)
-img adding code
-
 # Brief 
 The specification of this project was it had to meet the follow criteria. 
 - Lan or Wan multipler. 
