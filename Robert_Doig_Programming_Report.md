@@ -98,3 +98,7 @@ Eagle vision was achieved by choosing the meshes that should be stored on the cu
 
 ### Invisibility 
 The invisiblity was implemented as a bool which was exposed for Leyla to use within the enemy AI. This meant the for each character a check to see if they are visable was needed. Thinking back on this ability it would have been better to turn of the collision events that are caused by the raycasts in the scene. The visual effect of the character was a combination of textures and perlin noise multipled with a colour scalar. 
+
+## Credits 
+
+I would like to credit Leyla and Wu as when ever they had a task to complete they had completed it with in the deadlines that we all agreed. This was important as we had so many parts of this game. I would also like to add that Leyla's commits need going though as she has done a lot of work as only one commit. 
